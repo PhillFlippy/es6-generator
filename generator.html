@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>es6 Generators</h1>
+<p>Open up the console to see the output for the generator</p>
+
+<script>
+/** Generators need the star next to function delcaration **/
+function* listPeople(){
+yield 'Bob';
+yield 'Linda';
+yield 'Tina';
+}
+/** Generators keep their variables until they are finished **/
+function* listNumbers(){
+let i = 0;
+yield i;
+i++;
+yield i;
+i++;
+yield i;
+i++;
+yield i;
+}
+const people = listPeople();
+console.log(people);
+console.log("***The first yield***");
+console.log(people.next()); // generators next() returns an object that has a done key and a value key. Done is true or false which can be useful when looping through yields
+console.log("***The first yield***");
+console.log(people.next());
+console.log("***The second yield***");
+console.log(people.next());
+console.log("***The second yield***");
+console.log(people.next());
+
+const numbers = listNumbers();
+console.log(people);
+console.log("***The first yield***");
+console.log(numbers.next());
+console.log("***The first yield***");
+console.log(numbers.next());
+console.log("***The second yield***");
+console.log(numbers.next());
+console.log("***The second yield***");
+console.log(numbers.next());
+</script>
+
+</body>
+</html>
